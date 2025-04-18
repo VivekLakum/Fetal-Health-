@@ -5,26 +5,28 @@ import pickle
 # Page setup
 st.set_page_config(page_title="Fetal Health Predictor", layout="centered")
 # Background Image CSS
-st.markdown("""
-    <style>
-    .stApp {
-        background-image: url("https://drive.google.com/drive/home");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
+import base64
 
-    h1, h2, h3, h4, h5, h6, .stMarkdown {
-        color: white !important;
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    }
+def set_bg_from_local(image_file):
+    with open(image_file, "rb") as file:
+        encoded = base64.b64encode(file.read()).decode()
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("data:image/png;base64,{encoded}");
+             background-size: cover;
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
 
-    p, label, .css-1cpxqw2 {
-        color: white !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-    }
-    </style>
-""", unsafe_allow_html=True)
+# Call this function
+set_bg_from_local("images/my_fetal_bg.jpg")
+
 
 
 st.title("👶 Fetal Health Classifier")
