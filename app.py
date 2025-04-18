@@ -13,8 +13,19 @@ st.markdown("""
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
+
+    h1, h2, h3, h4, h5, h6, .stMarkdown {
+        color: white !important;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    p, label, .css-1cpxqw2 {
+        color: white !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+    }
     </style>
 """, unsafe_allow_html=True)
+
 
 st.title("👶 Fetal Health Classifier")
 st.write("Please enter all 21 feature values below 👇")
