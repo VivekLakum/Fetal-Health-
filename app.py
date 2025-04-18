@@ -8,7 +8,7 @@ st.set_page_config(page_title="Fetal Health Predictor", layout="centered")
 st.markdown("""
     <style>
     .stApp {
-        background-image: url("https://neurosciencenews.com/files/2024/06/fetal-brain-development-asd-neurosicence.jpg");
+        background-image: url("https://drive.google.com/drive/home");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
