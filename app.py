@@ -4,6 +4,18 @@ import pickle
 
 # Page setup
 st.set_page_config(page_title="Fetal Health Predictor", layout="centered")
+# Background Image CSS
+st.markdown("""
+    <style>
+    .stApp {
+        background-image: url("https://neurosciencenews.com/files/2024/06/fetal-brain-development-asd-neurosicence.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.title("👶 Fetal Health Classifier")
 st.write("Please enter all 21 feature values below 👇")
 
