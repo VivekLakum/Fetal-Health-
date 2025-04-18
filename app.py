@@ -5,27 +5,23 @@ import pickle
 # Page setup
 st.set_page_config(page_title="Fetal Health Predictor", layout="centered")
 # Background Image CSS
-import base64
-
-def set_bg_from_local(image_file):
-    with open(image_file, "rb") as file:
-        encoded = base64.b64encode(file.read()).decode()
+def set_bg_from_url(url):
     st.markdown(
-         f"""
-         <style>
-         .stApp {{
-             background-image: url("data:image/png;base64,{encoded}");
-             background-size: cover;
-             background-repeat: no-repeat;
-             background-attachment: fixed;
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("{url}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
-# Call this function
-set_bg_from_local("images/my_fetal_bg.jpg")
+# Set background
+set_bg_from_url("https://raw.githubusercontent.com/VivekLakum/Fetal-Health-/main/Screenshot%202025-04-18%20141639.png")
 
 
 
