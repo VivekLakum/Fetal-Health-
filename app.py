@@ -1,9 +1,12 @@
 import streamlit as st
 import pickle
 import numpy as np
+import pandas as pd
+from sklearn.metrics import accuracy_score
 
-# Load the model
-model = pickle.load(open("fetal_model.pkl", "rb"))
+# Load the trained model
+model = pickle.load(open("fetal_model_smote.pkl", "rb"))
+
 
 st.title("👶 Fetal Health Classifier")
 st.write("Please enter all 21 feature values below 👇")
