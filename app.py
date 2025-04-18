@@ -63,11 +63,29 @@ if st.button("🔍 Predict"):
         prediction = model.predict(X)[0]
 
         if prediction == 1:
-            st.success("🟢 Fetal Health Status: Normal")
-            st.toast("Prediction: Normal 👶✅")
-        elif prediction == 2:
-            st.warning("🟡 Fetal Health Status: Suspect")
-            st.toast("Prediction: Suspect ⚠️")
-        else:
-            st.error("🔴 Fetal Health Status: Pathological")
-            st.toast("Prediction: Pathological 🚨")
+    st.success("🟢 Fetal Health Status: Normal")
+    st.toast("Prediction: Normal 👶✅")
+    st.info("Great! The fetal health appears to be normal. Keep up with regular check-ups and a healthy lifestyle.")
+
+elif prediction == 2:
+    st.warning("🟡 Fetal Health Status: Suspect")
+    st.toast("Prediction: Suspect ⚠️")
+    st.info("""
+    ⚠️ The result is **Suspect**. It’s recommended to:
+    - Repeat the test or consult your doctor
+    - Monitor fetal movements and symptoms
+    - Follow up with additional medical evaluations
+    """)
+
+else:
+    st.error("🔴 Fetal Health Status: Pathological")
+    st.toast("Prediction: Pathological 🚨")
+    st.info("""
+    🚨 **Immediate medical attention is advised.**
+    
+    The prediction indicates a potential issue with fetal health. Please:
+    - Contact your healthcare provider as soon as possible
+    - Avoid stress and keep yourself monitored
+    - Follow prescribed diagnostic procedures (e.g., ultrasound, NST)
+    """)
+
