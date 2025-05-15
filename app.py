@@ -100,10 +100,25 @@ if st.button("🔍 Predict"):
         st.markdown(custom_css, unsafe_allow_html=True)
 
         if prediction == 1:
-            st.markdown(\"\"\"\n<div class='popup-box'>\n    <h4>🟢 Fetal Health Status: Normal</h4>\n    <p>Great! The fetal health appears to be normal. Keep up with regular check-ups and a healthy lifestyle.</p>\n</div>\n\"\"\", unsafe_allow_html=True)
+            st.markdown("""
+            <div class='popup-box'>
+                <h4>🟢 Fetal Health Status: Normal</h4>
+                <p>Great! The fetal health appears to be normal. Keep up with regular check-ups and a healthy lifestyle.</p>
+            </div>
+            """, unsafe_allow_html=True)
 
         elif prediction == 2:
-            st.markdown(\"\"\"\n<div class='popup-box warning'>\n    <h4>🟡 Fetal Health Status: Suspect</h4>\n    <p>⚠️ The result is <strong>Suspect</strong>. Please consult your doctor and monitor fetal activity closely.</p>\n</div>\n\"\"\", unsafe_allow_html=True)
+            st.markdown("""
+            <div class='popup-box warning'>
+                <h4>🟡 Fetal Health Status: Suspect</h4>
+                <p>⚠️ The result is <strong>Suspect</strong>. Please consult your doctor and monitor fetal activity closely.</p>
+            </div>
+            """, unsafe_allow_html=True)
 
         else:
-            st.markdown(\"\"\"\n<div class='popup-box danger'>\n    <h4>🔴 Fetal Health Status: Pathological</h4>\n    <p>🚨 Immediate medical attention is recommended. Please consult a healthcare provider urgently.</p>\n</div>\n\"\"\", unsafe_allow_html=True)
+            st.markdown("""
+            <div class='popup-box danger'>
+                <h4>🔴 Fetal Health Status: Pathological</h4>
+                <p>🚨 Immediate medical attention is recommended. Please consult a healthcare provider urgently.</p>
+            </div>
+            """, unsafe_allow_html=True)
