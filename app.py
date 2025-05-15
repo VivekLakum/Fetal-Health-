@@ -31,12 +31,29 @@ st.write("Please enter all 21 feature values below 👇")
 with open("fetal_model_smote.pkl", "rb") as f:
     model = pickle.load(f)
 
-# Labels for 21 inputs
-feature_labels = [
-    "Baseline Value", "Accelerations", "Fetal Movement", "Uterine Contractions", "Light Decelerations",
-    "Severe Decelerations", "Prolongued Decelerations", "Abnormal STV", "Mean STV", "% Time Abnormal LTV",
-    "Mean LTV", "Histogram Width", "Histogram Min", "Histogram Max", "Histogram Peaks", "Histogram Zeroes",
-    "Histogram Mode", "Histogram Mean", "Histogram Median", "Histogram Variance", "Histogram Tendency"
+# Labels and help texts
+feature_info = [
+    ("Baseline Value", "Average fetal heart rate (bpm) over a period of time."),
+    ("Accelerations", "Increases in fetal heart rate per second."),
+    ("Fetal Movement", "Fetal body movements per second."),
+    ("Uterine Contractions", "Frequency of uterine contractions per second."),
+    ("Light Decelerations", "Small decreases in fetal heart rate per second."),
+    ("Severe Decelerations", "Large decreases in fetal heart rate per second."),
+    ("Prolongued Decelerations", "Prolonged decreases in fetal heart rate per second."),
+    ("Abnormal STV", "Abnormal short-term variability in fetal heart rate."),
+    ("Mean STV", "Mean value of short-term variability."),
+    ("% Time Abnormal LTV", "Percentage of time with abnormal long-term variability."),
+    ("Mean LTV", "Mean long-term variability value."),
+    ("Histogram Width", "Width of the heart rate histogram."),
+    ("Histogram Min", "Minimum value in the histogram."),
+    ("Histogram Max", "Maximum value in the histogram."),
+    ("Histogram Peaks", "Number of peaks in the histogram."),
+    ("Histogram Zeroes", "Number of zero values in the histogram."),
+    ("Histogram Mode", "Most frequent value in the histogram."),
+    ("Histogram Mean", "Average value in the histogram."),
+    ("Histogram Median", "Middle value of the histogram."),
+    ("Histogram Variance", "Statistical variance of the histogram."),
+    ("Histogram Tendency", "Overall tendency of the histogram values.")
 ]
 
 # Input grid
@@ -44,9 +61,9 @@ cols = st.columns(4)
 inputs = []
 missing = False
 
-for i, label in enumerate(feature_labels):
+for i, (label, help_text) in enumerate(feature_info):
     col = cols[i % 4]
-    value = col.text_input(f"{label}", placeholder="Enter value")
+    value = col.text_input(f"{label}", placeholder="Enter value", help=help_text)
     try:
         value = float(value)
         inputs.append(value)
