@@ -39,7 +39,7 @@ feature_info = [
     ("Uterine Contractions", "Frequency of uterine contractions per second."),
     ("Light Decelerations", "Small decreases in fetal heart rate per second."),
     ("Severe Decelerations", "Large decreases in fetal heart rate per second."),
-    ("Prolongued Decelerations", "Prolonged decreases in fetal heart rate per second."),
+    ("Prolong Decelerations", "Prolonged decreases in fetal heart rate per second."),
     ("Abnormal STV", "Abnormal short-term variability in fetal heart rate."),
     ("Mean STV", "Mean value of short-term variability."),
     ("% Time Abnormal LTV", "Percentage of time with abnormal long-term variability."),
