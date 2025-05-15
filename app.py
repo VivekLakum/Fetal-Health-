@@ -76,7 +76,7 @@ if st.button("🔍 Predict"):
         X = np.array([inputs])
         prediction = model.predict(X)[0]
 
-           custom_css = """
+        custom_css = """
         <style>
         .popup-box {
             background-color: #000000;  /* black background */
@@ -123,3 +123,4 @@ if st.button("🔍 Predict"):
                 <p>🚨 Immediate medical attention is recommended. Please consult a healthcare provider urgently.</p>
             </div>
             """, unsafe_allow_html=True)
+
