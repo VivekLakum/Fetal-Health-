@@ -76,15 +76,16 @@ if st.button("🔍 Predict"):
         X = np.array([inputs])
         prediction = model.predict(X)[0]
 
-        custom_css = """
+           custom_css = """
         <style>
         .popup-box {
-            background-color: #fefefe;
+            background-color: #000000;  /* black background */
+            color: #ffffff;  /* white text */
             border-left: 8px solid #4CAF50;
             padding: 20px;
             margin-top: 20px;
             animation: slideIn 0.5s ease-out;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
             border-radius: 10px;
         }
         .popup-box.warning { border-left-color: #ffc107; }
