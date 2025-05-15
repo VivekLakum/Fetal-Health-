@@ -69,6 +69,7 @@ for i, (label, help_text) in enumerate(feature_info):
         inputs.append(value)
     except:
         missing = True
+# Predict
 if st.button("🔍 Predict"):
     if missing or len(inputs) != 21:
         st.error("⚠️ Please fill in all 21 input values correctly.")
@@ -76,51 +77,29 @@ if st.button("🔍 Predict"):
         X = np.array([inputs])
         prediction = model.predict(X)[0]
 
-        custom_css = """
-        <style>
-        .popup-box {
-            background-color: #000000;  /* black background */
-            color: #ffffff;  /* white text */
-            border-left: 8px solid #4CAF50;
-            padding: 20px;
-            margin-top: 20px;
-            animation: slideIn 0.5s ease-out;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-            border-radius: 10px;
-        }
-        .popup-box.warning { border-left-color: #ffc107; }
-        .popup-box.danger { border-left-color: #dc3545; }
-
-        @keyframes slideIn {
-            from { transform: translateY(-20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        </style>
-        """
-
-        st.markdown(custom_css, unsafe_allow_html=True)
-
         if prediction == 1:
-            st.markdown("""
-            <div class='popup-box'>
-                <h4>🟢 Fetal Health Status: Normal</h4>
-                <p>Great! The fetal health appears to be normal. Keep up with regular check-ups and a healthy lifestyle.</p>
-            </div>
-            """, unsafe_allow_html=True)
+            st.success("🟢 Fetal Health Status: Normal")
+            st.toast("Prediction: Normal 👶✅")
+            st.info("Great! The fetal health appears to be normal. Keep up with regular check-ups and a healthy lifestyle.")
 
         elif prediction == 2:
-            st.markdown("""
-            <div class='popup-box warning'>
-                <h4>🟡 Fetal Health Status: Suspect</h4>
-                <p>⚠️ The result is <strong>Suspect</strong>. Please consult your doctor and monitor fetal activity closely.</p>
-            </div>
-            """, unsafe_allow_html=True)
+            st.warning("🟡 Fetal Health Status: Suspect")
+            st.toast("Prediction: Suspect ⚠️")
+            st.info("""
+            ⚠️ The result is **Suspect**. It’s recommended to:
+            - Repeat the test or consult your doctor
+            - Monitor fetal movements and symptoms
+            - Follow up with additional medical evaluations
+            """)
 
         else:
-            st.markdown("""
-            <div class='popup-box danger'>
-                <h4>🔴 Fetal Health Status: Pathological</h4>
-                <p>🚨 Immediate medical attention is recommended. Please consult a healthcare provider urgently.</p>
-            </div>
-            """, unsafe_allow_html=True)
-
+            st.error("🔴 Fetal Health Status: Pathological")
+            st.toast("Prediction: Pathological 🚨")
+            st.info("""
+            🚨 **Immediate medical attention is advised.**
+            
+            The prediction indicates a potential issue with fetal health. Please:
+            - Contact your healthcare provider as soon as possible
+            - Avoid stress and keep yourself monitored
+            - Follow prescribed diagnostic procedures (e.g., ultrasound, NST)
+            """)
